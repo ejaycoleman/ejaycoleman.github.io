@@ -7,7 +7,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import meLol from "./me-lol.jpg";
+import meLol from "./6096450.jpeg";
 
 const App = () => {
   return (
@@ -19,8 +19,9 @@ const App = () => {
       justifyContent="center"
       style={{
         minHeight: "100vh",
-        backgroundColor: "#0093E9",
-        backgroundImage: "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
+        backgroundColor: "#041533",
+        background:
+          "radial-gradient(ellipse at right bottom, #1B4662 10%, #041533 50%, #451838 100%)",
       }}
     >
       <Card style={{ padding: 30 }}>
@@ -44,12 +45,11 @@ const App = () => {
               </span>
             </Typography>
             <Typography sx={{ mt: 1.5 }} color="text.secondary">
-              Software Engineer
+              Full Stack Software Engineer
             </Typography>
           </div>
-          <Typography sx={{ mt: 1.5 }}>Node, React, TypeScript</Typography>
           <Typography sx={{ mt: 1.5 }}>
-            Azure, Git, Octopus, Prisma, TeamCity,
+            TypeScript, React, Node, Azure
           </Typography>
         </CardContent>
         <CardActions>
