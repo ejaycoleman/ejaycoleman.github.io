@@ -4,7 +4,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "export": "next export",
+    "deploy": "next build && touch ./out/.nojekyll && gh-pages -d out -t true"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -23,6 +25,7 @@
     "@types/node": "^18.0.3",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "autoprefixer": "^10.4.7"
+    "autoprefixer": "^10.4.7",
+    "gh-pages": "^5.0.0"
   }
 }
