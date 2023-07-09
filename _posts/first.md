@@ -1,14 +1,17 @@
 ---
-title: "First Blog"
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
+title: "Planet Scale: A High Level Overview"
 coverImage: "/assets/blog/first/cover.jpg"
 date: "2023-07-09T05:35:07.322Z"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
+PlanetScale is a hosted MySQL platform, designed to be suitable for applications of any size :  “from idea to IPO”, with a pricing model that’s meant to reflect this. It’s constantly evolving, with new features implemented regularly — such as an HTTP API released during the time of writing this post!
 
-Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
+Among other features, it has a git-like workflow through schema branching, perfect for collaboration within larger teams. Members of the team can make non-blocking changes in isolated branches before requesting reviews from other members of the team — a tried and tested workflow in the software development realm.
 
-## Lorem Ipsum
+## What actually is PlanetScale?
 
-Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
+PlanetScale describes itself as a scalable serverless database platform built on top of the Vitess project. PlanetScale aims to bring the power of Vitess alongside additional functionality with an easy-to-use, deploy-in-10-seconds database platform.
+
+Vitess is one of the 16 graduated projects from the Cloud Native Computing Foundation (CNCF). Built as a side project from Google to scale YouTube, Vitess joined CNCF in 2018, where Vitess has since helped scale organisations such as Slack to handle billions of queries a day.
+
+> Read the rest of the article here: [YLD: Achieving Greater Heights with PlanetScale by Elliott Coleman](https://www.yld.io/blog/achieving-greater-heights-with-planetscale/)

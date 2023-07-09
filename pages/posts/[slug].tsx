@@ -5,7 +5,6 @@ import PostBody from "../../components/post-body";
 import PostHeader from "../../components/post-header";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import Head from "next/head";
-import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import Link from "next/link";
 import { Typography } from "@mui/material";
@@ -43,11 +42,11 @@ export default function Post({ post }: Props) {
   );
 }
 
-export async function getStaticProps({
+export const getStaticProps = ({
   params: { slug },
 }: {
   params: { slug: string };
-}) {
+}) => {
   const post = getPostBySlug(slug, [
     "title",
     "date",
@@ -55,19 +54,11 @@ export async function getStaticProps({
     "content",
     "coverImage",
   ]);
-  const content = await markdownToHtml(post.content || "");
 
-  return {
-    props: {
-      post: {
-        ...post,
-        content,
-      },
-    },
-  };
-}
+  return { props: { post } };
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = () => {
   const posts = getAllPosts(["slug"]);
 
   return {
@@ -80,4 +71,4 @@ export async function getStaticPaths() {
     }),
     fallback: false,
   };
-}
+};

@@ -3,9 +3,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
     "typecheck": "tsc",
-    "export": "next export",
     "deploy": "next build && touch ./out/.nojekyll && gh-pages -d out -t true"
   },
   "dependencies": {
@@ -17,8 +15,8 @@
     "next": "^13.4.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "remark": "^14.0.2",
-    "remark-html": "^15.0.1",
+    "react-markdown": "^8.0.7",
+    "remark-gfm": "^3.0.1",
     "typescript": "^4.7.4"
   },
   "devDependencies": {
