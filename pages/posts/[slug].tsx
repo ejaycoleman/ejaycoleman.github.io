@@ -2,12 +2,10 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "../../components/container";
 import PostBody from "../../components/post-body";
-import PostHeader from "../../components/post-header";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import Head from "next/head";
 import type PostType from "../../interfaces/post";
-import Link from "next/link";
-import { Typography } from "@mui/material";
+import Image from "next/image";
 
 type Props = {
   post: PostType;
@@ -16,25 +14,22 @@ type Props = {
 
 export default function Post({ post }: Props) {
   const router = useRouter();
-  const title = `post.title`;
+  const title = post.title;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Container>
-      <Typography variant="h5">
-        <Link href="/" style={{ color: "#3E1B36", textDecoration: "none" }}>
-          ejayc.co.uk
-        </Link>
-      </Typography>
+    <Container title={title} date={post.date}>
       <article>
         <Head>
           <title>{title}</title>
         </Head>
-        <PostHeader
-          title={post.title}
-          coverImage={post.coverImage}
-          date={post.date}
+        <Image
+          src={post.coverImage}
+          alt={`Cover Image for ${title}`}
+          width={800}
+          height={315}
+          style={{ marginLeft: "auto", marginRight: "auto", display: "block" }}
         />
         <PostBody content={post.content} />
       </article>
