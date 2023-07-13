@@ -51,6 +51,9 @@ export default ({ post: { title, slug } }: { post: Post }) => {
         </Typography>
       </CardContent>
       <CardActions>
+        <Link as={`/posts`} href="/posts" className="hover:underline">
+          <Button variant="contained">Blog</Button>
+        </Link>
         <Button variant="contained" href="https://github.com/ejaycoleman">
           Github
         </Button>

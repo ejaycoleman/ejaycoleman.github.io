@@ -1,4 +1,10 @@
-import { Card, CardContent, CardHeader, Typography } from "@mui/material";
+import {
+  Breadcrumbs,
+  Card,
+  CardContent,
+  CardHeader,
+  Typography,
+} from "@mui/material";
 import { format, parseISO } from "date-fns";
 import Link from "next/link";
 
@@ -16,11 +22,18 @@ const formatDate = (dateString: string) => {
 const Container = ({ children, date, title }: Props) => {
   return (
     <Card sx={{ p: 3, m: 3 }}>
-      <Typography variant="h5">
-        <Link href="/" style={{ color: "#3E1B36", textDecoration: "none" }}>
+      <Breadcrumbs>
+        <Link style={{ color: "#3E1B36", textDecoration: "none" }} href="/">
           ejayc.co.uk
         </Link>
-      </Typography>
+        <Link
+          style={{ color: "#3E1B36", textDecoration: "none" }}
+          href="/posts"
+        >
+          posts
+        </Link>
+        <Typography>{title}</Typography>
+      </Breadcrumbs>
       <CardHeader title={title} subheader={formatDate(date)} />
       <CardContent>{children}</CardContent>
     </Card>

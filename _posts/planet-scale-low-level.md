@@ -1,6 +1,6 @@
 ---
 title: "Planet Scale: A Low Level Deepdive"
-coverImage: "/assets/blog/planet-scale-high-level/cover.png"
+coverImage: "/assets/blog/planet-scale-low-level/cover.png"
 date: "2023-12-09T05:35:07.322Z"
 ---
 
