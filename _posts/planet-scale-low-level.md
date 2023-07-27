@@ -1,7 +1,7 @@
 ---
 title: "Planet Scale: A Low Level Deepdive"
 coverImage: "/assets/blog/planet-scale-low-level/cover.png"
-date: "2023-12-09T05:35:07.322Z"
+date: "2023-09-12T05:35:07.322Z"
 ---
 
 ## How do PlanetScale and Vitess differ?

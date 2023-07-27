@@ -1,7 +1,7 @@
 ---
 title: "Planet Scale: A High Level Overview"
 coverImage: "/assets/blog/planet-scale-high-level/cover.png"
-date: "2023-07-09T05:35:07.322Z"
+date: "2023-09-07T05:35:07.322Z"
 ---
 
 PlanetScale is a hosted MySQL platform, designed to be suitable for applications of any size :  “from idea to IPO”, with a pricing model that’s meant to reflect this. It’s constantly evolving, with new features implemented regularly — such as an HTTP API released during the time of writing this post!

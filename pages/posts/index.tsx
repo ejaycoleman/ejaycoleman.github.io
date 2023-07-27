@@ -14,7 +14,7 @@ import Image from "next/image";
 
 export default ({ posts }: { posts: PostType[] }) => {
   return (
-    <Card style={{ padding: 30 }}>
+    <Card style={{ padding: 30 }} sx={{ maxWidth: "lg" }}>
       <Breadcrumbs>
         <Link style={{ color: "#3E1B36", textDecoration: "none" }} href="/">
           ejayc.co.uk
@@ -29,21 +29,18 @@ export default ({ posts }: { posts: PostType[] }) => {
         style={{
           display: "flex",
           flexWrap: "wrap",
+          justifyContent: "center",
         }}
       >
         {posts.map(({ slug, title, coverImage }) => (
-          <Card
-            variant="outlined"
-            style={{ width: 400, margin: 30 }}
-            key={title}
-          >
+          <Card variant="outlined" sx={{ width: 400, m: 1 }} key={title}>
             <CardHeader title={title} />
             <CardContent>
               <Typography>
                 <Image
                   src={coverImage}
                   alt={`Cover Image for ${title}`}
-                  width={400}
+                  width={350}
                   height={150}
                   style={{
                     marginLeft: "auto",
@@ -71,7 +68,7 @@ export default ({ posts }: { posts: PostType[] }) => {
 };
 
 export const getStaticProps = async () => {
-  const posts = getAllPosts(["title", "slug", "coverImage"]);
+  const posts = getAllPosts(["title", "slug", "date", "coverImage"]);
 
   return {
     props: { posts },

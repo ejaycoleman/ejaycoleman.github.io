@@ -63,7 +63,7 @@ export default ({ post: { title, slug } }: { post: Post }) => {
 };
 
 export const getStaticProps = async () => {
-  const post = getRecentPost(["title", "slug"]);
+  const post = getRecentPost(["title", "slug", "date"]);
 
   return {
     props: { post },
