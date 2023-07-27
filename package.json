@@ -4,7 +4,7 @@
     "dev": "next",
     "build": "next build",
     "typecheck": "tsc",
-    "deploy": "next build && touch ./out/.nojekyll && gh-pages -d out -t true"
+    "deploy": "next build && touch ./out/.nojekyll && cp ./CNAME ./out && gh-pages -d out -t true"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -16,6 +16,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.7",
+    "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^3.0.1",
     "typescript": "^4.7.4"
   },
