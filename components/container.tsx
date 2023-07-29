@@ -21,7 +21,7 @@ const formatDate = (dateString: string) => {
 
 const Container = ({ children, date, title }: Props) => {
   return (
-    <Card sx={{ p: 3, m: 3 }}>
+    <Card sx={{ p: 3, m: 3, maxWidth: "90%" }}>
       <Breadcrumbs>
         <Link style={{ color: "#3E1B36", textDecoration: "none" }} href="/">
           ejayc.co.uk

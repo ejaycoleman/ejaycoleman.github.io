@@ -6,6 +6,7 @@ import { getPostBySlug, getAllPosts } from "../../lib/api";
 import Head from "next/head";
 import type PostType from "../../interfaces/post";
 import Image from "next/image";
+import { CardMedia } from "@mui/material";
 
 type Props = {
   post: PostType;
@@ -24,13 +25,15 @@ export default function Post({ post }: Props) {
         <Head>
           <title>{title}</title>
         </Head>
-        <Image
-          src={post.coverImage}
-          alt={`Cover Image for ${title}`}
-          width={800}
-          height={315}
-          style={{ marginLeft: "auto", marginRight: "auto", display: "block" }}
-        />
+        <CardMedia sx={{ position: "relative" }}>
+          <Image
+            src={post.coverImage}
+            alt={`Cover Image for ${title}`}
+            width={800}
+            height={315}
+            layout="responsive"
+          />
+        </CardMedia>
         <PostBody content={post.content} />
       </article>
     </Container>

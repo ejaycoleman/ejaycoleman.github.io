@@ -38,7 +38,6 @@ const componentConverter = {
 const PostBody = ({ content }: Props) => {
   return (
     <ReactMarkdown
-      className="blogContent"
       children={content}
       remarkPlugins={[remarkGfm]}
       components={componentConverter}
