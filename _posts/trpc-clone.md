@@ -1,6 +1,6 @@
 ---
 title: "TRPC Clone"
-coverImage: "/assets/blog/trpc-clone/cover.png"
+coverImage: "/assets/blog/trpc-clone/cover.jpg"
 date: "2023-07-27T05:35:07.322Z"
 ---
 
@@ -10,7 +10,7 @@ date: "2023-07-27T05:35:07.322Z"
 
 For a while, I’ve been interested in the emerging tRPC library - a TypeScript library that allows types to be defined in the server and referenced in the client. It’s a clever library, offering lots of functionality while still being easy to use. But beneath the surface is a complex implementation, leveraging advanced concepts in typescript to achieve a seamless experience for users. I wanted to take a deep dive into how it worked, and so that’s how this article originated.
 
-To skip into the code, visit it here: https://github.com/ejaycoleman/tRPClone. This post aims to explain the implementation. It’s also kinda WIP, so expect some parts to be poorly written.
+To skip into the code, visit it here: [https://github.com/ejaycoleman/tRPClone](https://github.com/ejaycoleman/tRPClone). This post aims to explain the implementation. It’s also kinda WIP, so expect some parts to be poorly written.
 
 While writing this article, I found that tRPC had officially published a blog post on how to implement the tRPC client: [https://trpc.io/blog/tinyrpc-client](https://trpc.io/blog/tinyrpc-client). My post aims to explain both the client and the server (in a less official way).
 
@@ -21,31 +21,25 @@ The official tRPC repository includes a simple example of how tRPC can be used: 
 In its simplest form, a server could be defined as such:
 
 ```tsx
-const appRouter = router({
-  userList: publicProcedure.query(async () => {
+const appRouter = {
+  userList: t.get(async () => {
     // Retrieve users from a datasource, this is an imaginary database
     const users = await db.user.findMany();
     //    ^?
     return users;
   }),
-  userById: publicProcedure.input(z.string()).query(async (opts) => {
-    const { input } = opts;
-    //      ^?
+  userById: t.input(z.string()).get(async (input) => {
     // Retrieve the user with the given ID
     const user = await db.user.findById(input);
+    return user || "not found";
+  }),
+  userCreate: t.input(z.object({ name: z.string() })).post(async (input) => {
+    // Create a new user in the database
+    const user = await db.user.create(input);
+    //    ^?
     return user;
   }),
-  userCreate: publicProcedure
-    .input(z.object({ name: z.string() }))
-    .mutation(async (opts) => {
-      const { input } = opts;
-      //      ^?
-      // Create a new user in the database
-      const user = await db.user.create(input);
-      //    ^?
-      return user;
-    }),
-});
+};
 ```
 
 Here are three endpoints: GET userList, GET userByID (with a query parameter), and POST userCreate (with a body). Zod is used to validate that the userById query parameter is a string, and the userCreate body is an object of {name: string}.
@@ -286,7 +280,7 @@ type AppRouter = {
 }
 ```
 
-So how do we then attach the .query and .mutate to getValues and post respectively? That’s where the magic of createTRPCProxy comes into play.
+So how do we then attach the .query and .mutate to userList and userById and userCreate? That’s where the magic of createTRPCProxy comes into play.
 
 ```tsx
 export const createTRPCProxy = <T,>() => {
@@ -386,3 +380,9 @@ type OverwriteChildren<T> = {
 ```
 
 In OverwriteChildren, T will be the type exported in the server, which we know will be a series of either Gets or Posts. Type inference is used to either redefine a Get<Input, Response> as Query<Input, Response> or a Post<Input, Response> as a Mutate<Input, Response>. We can then see Query and Mutate are similar, which just determine if an input parameter is required.
+
+## Wrapping Up
+
+Hopefully, I’ve been able to explain how, through the use of TypeScript type inference, conditionals, and JavaScript proxies, a basic implementation of tRPC can be achieved. If you haven’t already, take a look at the code here: [https://github.com/ejaycoleman/tRPClone](https://github.com/ejaycoleman/tRPClone), and run both the server and client to see how it works.
+
+My implementation isn’t a direct clone either — there are a lot of parts I’ve missed out on for simplicity and other parts I’ve implemented in different ways. My overall intention is to demonstrate the complexities of tRPC and how they achieve the simplicity it brings to users.

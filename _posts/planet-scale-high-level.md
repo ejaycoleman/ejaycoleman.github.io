@@ -1,6 +1,6 @@
 ---
 title: "Planet Scale: A High Level Overview"
-coverImage: "/assets/blog/planet-scale-high-level/cover.png"
+coverImage: "/assets/blog/planet-scale-high-level/cover.jpg"
 date: "2023-09-07T05:35:07.322Z"
 ---
 

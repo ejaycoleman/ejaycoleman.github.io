@@ -41,7 +41,7 @@ export default ({ posts }: { posts: PostType[] }) => {
                   src={coverImage}
                   alt={`Cover Image for ${title}`}
                   width={350}
-                  height={150}
+                  height={170}
                   style={{
                     marginLeft: "auto",
                     marginRight: "auto",
